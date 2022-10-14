@@ -16,6 +16,7 @@ const ReactRegisBoostrap = () => {
     const [password, setPasswordError] = useState('');
     const [success, setSuccess] = useState(false);
 
+    // handleRegister function
     const handleRegister = (event) => {
         event.preventDefault();
         setSuccess(false);
@@ -24,6 +25,8 @@ const ReactRegisBoostrap = () => {
         console.log(name);
         const email = form.email.value;
         const password = form.password.value;
+      
+        // Check password Strong or week.
         if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
             setPasswordError('two upper case');
             return
@@ -54,6 +57,8 @@ const ReactRegisBoostrap = () => {
                 console.log('error', error);
                 setPasswordError(error.message);
             });
+
+        // sendEmailVerification function
         const verifyEmail = () => {
             sendEmailVerification(auth.currentUser)
                 .then(() => {
@@ -62,6 +67,7 @@ const ReactRegisBoostrap = () => {
                 });
         }
 
+        // update user name function
         const updateUserName = (name) => {
             updateProfile(auth.currentUser, {
                 displayName: name

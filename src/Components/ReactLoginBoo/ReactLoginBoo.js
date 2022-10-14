@@ -10,6 +10,8 @@ const ReactLoginBoo = () => {
     const [success, setSuccess] = useState(false);
     const [userEmail, setUserEmail] = useState('');
 
+
+    // signInWithEmailAndPassword function
     const handleSubmit = (event) => {
         event.preventDefault();
         setSuccess(false)
@@ -34,13 +36,14 @@ const ReactLoginBoo = () => {
             });
     }
 
+    // handleEmailBlur function
     const handleEmailBlur = (event) => {
         const email = event.target.value;
-        console.log(email);
         setUserEmail(email);
 
     }
 
+    // PasswordReset function
     const hanldePasswordReset = () => {
         if (!userEmail) {
             alert('Please input email.');
@@ -57,13 +60,13 @@ const ReactLoginBoo = () => {
             });
     }
 
+    // Sign Out function
     const hanldeSignOut = (user) => {
         console.log(user);
         deleteUser(user).then(() => {
             // User deleted.
         }).catch((error) => {
             // An error ocurred
-            // ...
         });
     }
 
